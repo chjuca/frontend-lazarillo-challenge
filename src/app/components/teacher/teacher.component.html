@@ -22,7 +22,9 @@
                     <p>{{teacher.name}}</p>
                 </td>
                 <td scope="row">
-                    <p>Asignaturas</p>
+                    <ul *ngFor="let subject of teacher.subjects">
+                    <li>{{subject}}</li>
+                    </ul>
                 </td>
                 <td scope="row">
                     <p>{{teacher.dateBirth._seconds * 1000 | date: 'dd-MM-yyyy'}}</p>

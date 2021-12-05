@@ -27,6 +27,7 @@ export class TeacherFormComponent implements OnInit {
       if(data.ok == true){
         this.successfully = true;
         this.teacher = {} as Teacher
+        this.subject = "";
         this.subjects = [];
       }
     });
