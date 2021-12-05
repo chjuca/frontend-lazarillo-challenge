@@ -1,3 +1,75 @@
-<div>
-    
+<div class="container-fluid p-5">
+    <div class="container-fluid">
+        <div class="container-sm bg-white">
+            <h3>Agregar Profesor</h3>
+            <br>
+            <form>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Nombre del profesor:</label>
+                    <div class="col-sm-6">
+                        <input type="text" [(ngModel)]="teacher.name" class="form-control" name="name"
+                            placeholder="Nombre del Profesor">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Asignaturas:</label>
+                    <div class="col-sm-5">
+                        <input type="text" [(ngModel)]="subject" class="form-control" name="subject"
+                            placeholder="Nombre de la Asignatura">
+                        <br>
+                        <ul *ngFor="let subject of subjects">
+                            <li (click)="removeSubject(subject)">{{subject + " ❌"}}</li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-2">
+                        <button (click)='addSubject()' class="btn btn-secondary">Agregar Asignatura</button>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Fecha de Nacimiento:</label>
+                    <div class="col-sm-6">
+                        <input type="date" [(ngModel)]="teacher.dateBirth" class="form-control" name="dateBirth"
+                            placeholder="Fecha de Nacimiento">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Direccion:</label>
+                    <div class="col-sm-6">
+                        <input type="text" [(ngModel)]="teacher.direction" class="form-control" name="direction"
+                            placeholder="Direccion">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="form-group row">
+                    <label class="col-sm-3 col-form-label">Tipo de Contrato:</label>
+                    <div class="col-sm-6">
+                        <select class="form-select" aria-label=".form-select-sm example" name="type"
+                            [(ngModel)]="teacher.typeContract" [ngModelOptions]="{standalone: true}">
+                            <option [value]="type" *ngFor="let type of types">{{type}}</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div *ngIf ="successfully"  class="alert alert-success" role="alert">
+                    El profesor ha sido creado con exito
+                </div>
+                <br>
+                <br>
+                <div class="form-group row">
+                    <div class="col-2">
+                        <button (click)='addTeacher()' class="btn btn-primary" [disabled]="validateForm()">Guardar
+                            Profesor</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

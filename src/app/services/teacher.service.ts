@@ -16,6 +16,7 @@ export class TeacherService {
   }
   
   createTeacher(teacher: Teacher): Observable<any>{
+    console.log(teacher);
     return this.http.post(`${environment.apiUrl}/teacher`, teacher);
   }
 }
