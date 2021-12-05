@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiUrl: 'http://localhost:5000/lazarillo-challenge-9e1c9/us-central1/app/api',
 };
 
 /*
