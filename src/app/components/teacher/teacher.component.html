@@ -1,1 +1,40 @@
-<p>teacher works!</p>
+<div class="container">
+
+    <br>
+    <div>
+        <input type="text" class="form-control" (input)="onSearchChange($event.target.value)"
+            placeholder="Filtrar por nombre ...">
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Nombre</th>
+                <th scope="col">Asignaturas</th>
+                <th scope="col">Fecha de Nacimiento</th>
+                <th scope="col">Direccion</th>
+                <th scope="col">Tipo de Contrato</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let teacher of teachersFilter">
+                <td scope="row">
+                    <p>{{teacher.name}}</p>
+                </td>
+                <td scope="row">
+                    <p>Asignaturas</p>
+                </td>
+                <td scope="row">
+                    <p>{{teacher.dateBirth._seconds * 1000 | date: 'dd-MM-yyyy'}}</p>
+                </td>
+                <td scope="row">
+                    <p>{{teacher.direction}}</p>
+                </td>
+                <td scope="row">
+                    <p>{{teacher.typeContract}}</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
