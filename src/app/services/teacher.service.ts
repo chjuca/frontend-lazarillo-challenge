@@ -14,9 +14,25 @@ export class TeacherService {
   getTeachers(): Observable<any>{
     return this.http.get(`${environment.apiUrl}/teacher`);
   }
+
+  getTeacherByID(teacherID): Observable<any> {
+    return this.http.get(`${environment.apiUrl}/teacher/${teacherID}`)
+  }
   
   createTeacher(teacher: Teacher): Observable<any>{
-    console.log(teacher);
+    console.log(teacher.dateBirth)
     return this.http.post(`${environment.apiUrl}/teacher`, teacher);
   }
+
+  updateTeacher(teacher: Teacher): Observable<any> {
+    console.log(teacher);
+    return this.http.put(`${environment.apiUrl}/teacher/${teacher.id}`, teacher)
+  }
+
+  deleteTeacher(teacher: Teacher){
+    this.http.delete(`${environment.apiUrl}/teacher/${teacher.id}`).subscribe(res => {
+      console.log(res)
+    });
+  }
 }
+

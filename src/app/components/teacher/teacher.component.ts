@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Teacher } from 'src/app/models/teacher.interface';
 import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
@@ -11,7 +13,7 @@ export class TeacherComponent implements OnInit {
   teachers = [];
   teachersFilter = []
 
-  constructor(public teacherService: TeacherService) { }
+  constructor(public teacherService: TeacherService, public router: Router) { }
 
   ngOnInit(): void {
     this.teacherService.getTeachers().subscribe(data => {
@@ -27,6 +29,14 @@ export class TeacherComponent implements OnInit {
     } else {
       this.teachersFilter = this.teachers.filter(teacher => teacher.name.startsWith(searchValue));
     }
+  }
+
+  updateTeacher(teacher: Teacher) {
+    this.router.navigate(['teacher', teacher.id]);
+  }
+
+  deleteTeacher(teacher: Teacher){
+    this.teacherService.deleteTeacher(teacher);
   }
 
 

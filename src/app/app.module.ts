@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeacherComponent } from './components/teacher/teacher.component';
 import { TeacherFormComponent } from './components/teacher-form/teacher-form.component';
+import { TeacherEditFormComponent } from './components/teacher-edit-form/teacher-edit-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TeacherComponent,
-    TeacherFormComponent
+    TeacherFormComponent,
+    TeacherEditFormComponent
   ],
   imports: [
     BrowserModule,

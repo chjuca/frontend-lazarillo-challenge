@@ -2,7 +2,7 @@ export interface Teacher {
     id?: string;
     name: string,
     subjects: string[],
-    dateBirth: Date,
+    dateBirth: string,
     direction: string,
     typeContract: string
 }

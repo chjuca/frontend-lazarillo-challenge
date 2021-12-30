@@ -35,6 +35,10 @@
                 <td scope="row">
                     <p>{{teacher.typeContract}}</p>
                 </td>
+                <td>
+                    <button type="button" class="btn btn-warning m-2" [routerLink]="" (click)='updateTeacher(teacher)'>Editar</button>
+                    <button type="button" class="btn btn-danger m-2" (click)='deleteTeacher(teacher)'>Eliminar</button>
+                </td>
             </tr>
         </tbody>
     </table>
